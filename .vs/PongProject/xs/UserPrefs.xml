@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{FE62EF10-13C0-F630-625B-D13E5663A4AA}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GUI/ScoreManager.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Ball.cs" Line="114" Column="6" />
+      <File FileName="Assets/Scripts/GUI/ScoreManager.cs" Line="6" Column="26" />
+      <File FileName="Assets/Scripts/GUI/InputManager.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PongProject" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="GUI" expanded="True">
+                  <Node name="ScoreManager.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="562b3ccc-9ebd-4d81-aee3-15e030414241" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
