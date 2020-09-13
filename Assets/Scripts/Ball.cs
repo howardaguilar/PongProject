@@ -6,8 +6,8 @@ public class Ball : MonoBehaviour
 {
     // Score Manager object
     public ScoreManager scoreManager;
-    public Vector3 startPoint;
 
+    public Vector3 startPoint;
     private Rigidbody rb;
     public float amplify = 1;
     public float player1 = 0;
@@ -30,14 +30,7 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       /*if (scoredOnR == 1)
-        {
-            scoreManager.IncrementCount("player1");
-        }
-       else if (scoredOnL == 1)
-        {
-            scoreManager.IncrementCount("player2");
-        }*/
+
     }
     private void FixedUpdate()
     {
@@ -49,11 +42,11 @@ public class Ball : MonoBehaviour
         if (rb.position.x > 10)
         {
             rb.velocity = Vector3.zero;
-            //rb.transform.Translate(new Vector3(-10, 0, 0));
             rb.transform.position = startPoint;
             player1++;
             Debug.Log("Player 1 scored: " + player1 + " - " + player2);
             scoredOnR++;
+            // Score text increment
             scoreManager.IncrementCount("player1");
             
  
@@ -61,11 +54,11 @@ public class Ball : MonoBehaviour
         else if (rb.position.x < -10)
         {
             rb.velocity = Vector3.zero;
-            //rb.transform.Translate(new Vector3(10, 0, 0));
             rb.transform.position = startPoint;
             player2++;
             Debug.Log("Player 2 scored: " + player1 + " - " + player2);
             scoredOnL++;
+            // Score text increment
             scoreManager.IncrementCount("player2");
         }
 
