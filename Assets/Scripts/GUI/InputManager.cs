@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public ScoreManager scoreManager;
+    //public ScoreManager scoreManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +16,7 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            scoreManager.IncrementCount();
+            //scoreManager.IncrementCount("player1");
         }
     }
 }

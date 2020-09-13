@@ -7,10 +7,13 @@ public class ScoreManager : MonoBehaviour
 {
     public TextMeshProUGUI score;
     private int counter = 0;
+    private int player1 = 0;
+    private int player2 = 0;
     // Start is called before the first frame update
     void Start()
     {
-        score.text = "The current score is " + counter;
+        //score.text = "The current score is " + counter;
+        score.text = "Game has begun!";
     }
 
     // Update is called once per frame
@@ -19,15 +22,25 @@ public class ScoreManager : MonoBehaviour
         
     }
 
-    public void IncrementCount()
+    public void IncrementCount(string who)
     {
-        counter++;
+        //counter++;
         //score.text = "The current score is <size=100%>" + counter + "</size> Test";
         //score.text = string.Format("The current score is {0}{1}</size> Hooray", DetermineSizeOfFont(), counter);
         //score.text = $"The current score is {DetermineSizeOfFont()}{counter}</size> Hooray";
+        if (who == "player1")
+        {
+            player1++;
+        }
+        else if (who == "player2")
+        {
+            player2++;
+        }
+        
         string first = SomeCoolJuiciness().Item1;
         string second = SomeCoolJuiciness().Item2;
-        score.text = $"The current score is {first}{counter}</size> Hooray";
+        //score.text = $"The current score is {first}{counter}</size> Hooray";
+        score.text = "The current score is: " + Juicy(player1) + player1 + "</color>" + " - " + Juicy(player2) + player2 + "</color>";
     }
 
     private string DetermineSizeOfFont() //SomeCoolJuiciness()
@@ -40,9 +53,30 @@ public class ScoreManager : MonoBehaviour
     {
         //string returnText1 = (counter > 5) ? "<size=20%>" : "<size=18%>";
         string returnText2 = "size";
-
+        //player1++;
         string returnText1 = (counter > 5) ? "<color=red>" : "<color=blue>";
 
         return (returnText1, returnText2);
+    }
+
+    private string Juicy(int player)
+    {
+        string juiced = "";
+        juiced = player.ToString();
+        if (player < 2)
+        {
+            juiced = "<color=red>";
+        }
+        else if (player == 2)
+        {
+            juiced = "<color=blue>";
+        }
+        else if (player > 2)
+        {
+            juiced = "<color=green>";
+        }
+        //string juiced = player.ToString();
+
+        return juiced;
     }
 }
