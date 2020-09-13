@@ -34,11 +34,13 @@ public class Ball : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        // Start game
         if (Input.GetKeyDown(KeyCode.Space))
         {
             AddForce();
         }
 
+        // Scoring rules based on position of ball
         if (rb.position.x > 10)
         {
             rb.velocity = Vector3.zero;
@@ -62,6 +64,7 @@ public class Ball : MonoBehaviour
             scoreManager.IncrementCount("player2");
         }
 
+        // End game 
         if (player1 == 11 | player2 == 11)
         {
             if (player1 > player2)
@@ -78,6 +81,7 @@ public class Ball : MonoBehaviour
         }
     }
 
+    // Surf Ball
     private void AddForce()
     {
         if (scoredOnR == 1)
@@ -97,8 +101,7 @@ public class Ball : MonoBehaviour
         
     }
 
-    
-
+    // On collision change ball trajectory
     private void OnCollisionEnter(Collision collision)
     {
         PlayBoop();
@@ -130,18 +133,20 @@ public class Ball : MonoBehaviour
         
     }
 
+    // Power Ups
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "PowerUp")
         {
-            rb.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+            rb.transform.localScale += new Vector3(0.3f, 0.3f, 0.3f);
         }
         else if (other.name == "PowerDown")
         {
-            rb.transform.localScale += new Vector3(-0.1f, -0.1f, -0.1f);
+            rb.transform.localScale += new Vector3(-0.3f, -0.3f, -0.3f);
         }
     }
 
+    // Sound effects
     public void PlayBoop()
     {
         if (rb.velocity.magnitude > 5)
