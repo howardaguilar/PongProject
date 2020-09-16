@@ -24,7 +24,7 @@ public class LeftPaddle : MonoBehaviour
             }
             else if ((transform.position.z) >= 5.5)
             {
-                transform.Translate(new Vector3(0, 0, Input.GetAxis("Vertical") + 5) * Time.deltaTime * amplify * - 5);
+                transform.Translate(new Vector3(0, 0, Input.GetAxis("Vertical") + 5) * Time.deltaTime * amplify * - 5); // CHECK THIS OUT
             }
         }
         else if (Input.GetKey(KeyCode.S))

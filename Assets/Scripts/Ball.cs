@@ -6,8 +6,9 @@ public class Ball : MonoBehaviour
 {
     // Score Manager object
     public ScoreManager scoreManager;
-
     public Vector3 startPoint;
+    public Vector3 startSize;
+
     private Rigidbody rb;
     public float amplify = 1;
     public float player1 = 0;
@@ -18,11 +19,14 @@ public class Ball : MonoBehaviour
     private AudioSource audioSource;
     public AudioClip clipDefault;
     public AudioClip clipPew;
+
+    bool marker;
     
     // Start is called before the first frame update
     void Start()
     {
         startPoint = this.transform.position;
+        startSize = this.transform.localScale; 
         audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
     }
@@ -30,14 +34,19 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            marker = true;
+        }
     }
     private void FixedUpdate()
     {
         // Start game
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (marker)
         {
+            //Debug.Log("Got Called");
             AddForce();
+            marker = false;
         }
 
         // Scoring rules based on position of ball
@@ -45,6 +54,7 @@ public class Ball : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
             rb.transform.position = startPoint;
+            rb.transform.localScale = startSize;
             player1++;
             Debug.Log("Player 1 scored: " + player1 + " - " + player2);
             scoredOnR++;
@@ -57,6 +67,7 @@ public class Ball : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
             rb.transform.position = startPoint;
+            rb.transform.localScale = startSize;
             player2++;
             Debug.Log("Player 2 scored: " + player1 + " - " + player2);
             scoredOnL++;
@@ -86,17 +97,17 @@ public class Ball : MonoBehaviour
     {
         if (scoredOnR == 1)
         {
-            rb.AddForce(new Vector3(15, 0, -5) * amplify);
+            rb.AddForce(new Vector3(15, 0, -5));
             scoredOnR = 0;
         }
         else if (scoredOnL == 1)
         {
-            rb.AddForce(new Vector3(-15, 0, 5) * amplify);
+            rb.AddForce(new Vector3(-15, 0, 5));
             scoredOnL = 0;
         }
         else
         {
-            rb.AddForce(new Vector3(15, 0, 5) * amplify);
+            rb.AddForce(new Vector3(15, 0, 5));
         }
         
     }
